@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Day 07:ARRAY METHODS</title>
+    </head>
+    <body>
+        <h1>Solving problems using array functions on the rest countries' data (https://restcountries.com/v3.1/all).</h1>
+        <h2>(b) Get all the countries with a population of less than 2 lakhs using Filter function</h2>
+        <h2>By ...Siva...</h2>
+        <script>
+            console.log("Welcome to HTML JS")
+
+            function handleData(){
+                let data = JSON.parse(this.responseText)
+                console.log(data)
+
+                console.log(data.filter((value,index,array)=>{
+                    for(i in array){
+                        if(array[i].population<200000){
+                            console.log(array[i].subregion, array[i].population)
+                        }
+                    }
+                }));
+               
+                
+
+                
+            }
+
+            const req = new XMLHttpRequest();
+            req.addEventListener('load',handleData)
+            req.open("GET","https://restcountries.com/v3.1/all")
+            req.send()
+        </script>
+    </body>
+</html>

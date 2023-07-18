@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Day 07:ARRAY METHODS</title>
+    </head>
+    <body>
+        <h1>Solving problems using array functions on the rest countries' data (https://restcountries.com/v3.1/all).</h1>
+        <h2>(d) Print the total population of countries using reduce function</h2>
+        <h2>By ...Siva...</h2>
+        <script>
+            console.log("Welcome to HTML JS")
+
+            function handleData(){
+                let data = JSON.parse(this.responseText)
+                console.log(data)
+                let Arr=[]
+                for(i in data){
+                    Arr.push(data[i].population );
+               }
+                console.log(`Total Population of countries = ${Arr.reduce((previousvalue,currentvaluve)=>{
+                     return previousvalue+currentvaluve;                   
+                })}`)
+            }
+
+            const req = new XMLHttpRequest();
+            req.addEventListener('load',handleData)
+            req.open("GET","https://restcountries.com/v3.1/all")
+            req.send()
+        </script>
+    </body>
+</html>
